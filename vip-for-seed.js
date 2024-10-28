@@ -4,7 +4,7 @@ import { subtle } from 'node:crypto';
 
 export default class VipForSeed extends BasePlugin {
   static get description() {
-    return 'The <code>FogOfWar</code> plugin can be used to automate setting fog of war mode.';
+    return 'Vip for seed';
   }
 
   static get defaultEnabled() {
@@ -144,7 +144,6 @@ export default class VipForSeed extends BasePlugin {
 
   async warn(playerID, message, repeat = 1, frequency = 5) {
     for (let i = 0; i < repeat; i++) {
-      // repeat используется для того, чтобы squad выводил все сообщения, а не скрывал их из-за того, что они одинаковые
       await this.server.rcon.warn(playerID, message + '\u{00A0}'.repeat(i));
 
       if (i !== repeat - 1) {
